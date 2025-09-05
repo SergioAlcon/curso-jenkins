@@ -12,8 +12,8 @@ fi
 # Activar el entorno virutal correctamente
 if [ -f "venv/bin/activate"]; then
     source venv/bin/activate
-elif [ -f "venv/bin/activate"]; then #para windows
-    source venv/bin/activate
+elif [ -f "venv/Scripts/activate"]; then #para windows
+    source venv/Scripts/activate
 else
     echo "Error: No se pudo activar el entorno virutal."
     exit 1
@@ -26,6 +26,6 @@ pip install -r requirements.txt --breack-system-packages
 
 # Ejecutar las pruebas
 echo "ejecutando pruebas con pytest..."
-pytest tests/ --junitxml=reports/test-results.xml --html=reports/report.html --self-contained-html
+venv/bin/python -m pytest tests/ --junitxml=reports/test-results.xml --html=reports/report.html --self-contained-html
 
 echo "pruebas finalizadas resultados en reports"
