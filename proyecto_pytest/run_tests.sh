@@ -5,6 +5,8 @@ echo "Iniciando ejecución de pruebas en Jenkins..."
 # Ir a la carpeta raíz del proyecto (donde está este script)
 cd "$(dirname "$0")"
 echo "hemos entrado a la carpeta del script "
+cd venv
+echo "hemos entrado a la carpeta venv "
 ls
 
 # Verificar si el entorno virtual existe
@@ -20,6 +22,7 @@ if [ -f "venv/bin/activate" ]; then
     source venv/bin/activate
 elif [ -f "venv/Scripts/activate" ]; then  # Para windows
     source venv/Scripts/activate
+
 else
     echo "Error: No se pudo activar el entorno virtual."
     exit 1
