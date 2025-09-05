@@ -2,6 +2,11 @@
 
 echo "Iniciando ejecución de pruebas en Jenkins..."
 
+# Ir a la carpeta raíz del proyecto (donde está este script)
+cd "$(dirname "$0")"
+echo "hemos entrado a la carpeta del script "
+ls
+
 # Verificar si el entorno virtual existe
 if [ ! -d "venv" ]; then
     echo "Entorno virtual no encontrado. Creándolo..."
