@@ -1,5 +1,4 @@
 #!/bin/bash
-set -euo pipefail
 
 echo "Iniciando ejecución de pruebas en Jenkins..."
 
@@ -21,7 +20,6 @@ fi
 
 # Verificar si `pip` está instalando correctamente
 echo "Instalando dependencias..."
-python -m pip install --upgrade pip
 pip install --upgrade pip --break-system-packages
 pip install -r requirements.txt --break-system-packages
 
