@@ -6,13 +6,15 @@ echo "Iniciando ejecución de pruebas en Jenkins..."
 if [ ! -d "venv" ]; then
     echo "Entorno virtual no encontrado. Creándolo..."
     python3 -m venv venv
+else
+    echo "Entorno virtual ya está creado en venv/"
 fi
 
 # Activar el entorno virutal correctamente
 if [ -f "venv/bin/activate" ]; then
-    . venv/bin/activate
+    source venv/bin/activate
 elif [ -f "venv/Scripts/activate" ]; then  # Para windows
-    . venv/Scripts/activate
+    source venv/Scripts/activate
 else
     echo "Error: No se pudo activar el entorno virtual."
     exit 1
