@@ -1,11 +1,12 @@
 #!/bin/bash
+set -euo pipefail
 
 echo "Iniciando ejecución de pruebas en Jenkins..."
 
 # Verificar si el entorno virtual existe
 if [ ! -d "venv" ]; then
     echo "Entorno virtual no encontrado. Creándolo..."
-    python3 -m venv venv
+    python -m venv venv
 fi
 
 # Activar el entorno virutal correctamente
@@ -20,6 +21,7 @@ fi
 
 # Verificar si `pip` está instalando correctamente
 echo "Instalando dependencias..."
+python -m pip install --upgrade pip
 pip install --upgrade pip --break-system-packages
 pip install -r requirements.txt --break-system-packages
 
